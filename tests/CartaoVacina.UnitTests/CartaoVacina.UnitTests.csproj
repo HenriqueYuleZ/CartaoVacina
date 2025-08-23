@@ -17,8 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CartaoVacina.Application\CartaoVacina.Application.csproj" />
-    <ProjectReference Include="..\CartaoVacina.Domain\CartaoVacina.Domain.csproj" />
+    <ProjectReference Include="..\..\src\CartaoVacina.Application\CartaoVacina.Application.csproj" />
+    <ProjectReference Include="..\..\src\CartaoVacina.Domain\CartaoVacina.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

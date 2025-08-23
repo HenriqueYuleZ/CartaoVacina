@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CartaoVacina.API\CartaoVacina.API.csproj" />
+    <ProjectReference Include="..\..\src\CartaoVacina.API\CartaoVacina.API.csproj" />
     <ProjectReference Include="..\CartaoVacina.TestHelpers\CartaoVacina.TestHelpers.csproj" />
   </ItemGroup>
 
