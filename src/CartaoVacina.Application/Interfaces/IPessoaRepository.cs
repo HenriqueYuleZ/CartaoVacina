@@ -7,7 +7,7 @@ public interface IPessoaRepository
     Task<Pessoa?> GetByIdAsync(Guid id);
     Task<Pessoa?> GetByDocumentNumberAsync(string documentNumber);
     Task<List<Pessoa>> GetAllAsync();
-    Task AddAsync(Pessoa pessoa);
+    Task<Pessoa> AddAsync(Pessoa pessoa);
     void Update(Pessoa pessoa);
     void Delete(Guid id);
     Task<bool> DocumentoExisteAsync(string documentNumber);
