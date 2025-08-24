@@ -10,7 +10,6 @@ namespace CartaoVacina.Domain.Entities
     {
         public string Nome { get; private set; }
 
-
         public Vacina(string nome)
         {
             if (string.IsNullOrWhiteSpace(nome)) throw new ArgumentException("Nome inválido");

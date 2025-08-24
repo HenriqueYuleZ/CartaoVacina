@@ -10,13 +10,8 @@ namespace CartaoVacina.Domain.Entities
     {
         public Guid PessoaId { get; private set; }
         public Guid VacinaId { get; private set; }
-
-
         public int Dose { get; private set; } // 1, 2, 3...
         public DateTime DataAplicacao { get; private set; }
-
-
-        // Navegação (opcional)
         public Pessoa? Pessoa { get; private set; }
         public Vacina? Vacina { get; private set; }
 
