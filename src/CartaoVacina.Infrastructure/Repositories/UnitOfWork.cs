@@ -13,10 +13,11 @@ public class UnitOfWork : IUnitOfWork
     {
         _context = context;
         Pessoas = new PessoaRepository(_context);
-        
+        Vacinas = new VacinaRepository(_context);
     }
 
     public IPessoaRepository Pessoas { get; }
+    public IVacinaRepository Vacinas { get; }
     
 
     public async Task<int> SaveChangesAsync()
