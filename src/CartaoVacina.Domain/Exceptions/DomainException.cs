@@ -1,4 +1,4 @@
-namespace VaccinationCard.Domain.Exceptions;
+namespace CartaoVacina.Domain.Exceptions;
 
 public class DomainException : Exception
 {

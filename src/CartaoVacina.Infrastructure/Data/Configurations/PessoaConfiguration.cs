@@ -4,7 +4,7 @@ using CartaoVacina.Domain.Entities;
 
 namespace CartaoVacina.Infrastructure.Data.Configurations;
 
-public class PersonConfiguration : IEntityTypeConfiguration<Pessoa>
+public class PessoaConfiguration : IEntityTypeConfiguration<Pessoa>
 {
     public void Configure(EntityTypeBuilder<Pessoa> builder)
     {

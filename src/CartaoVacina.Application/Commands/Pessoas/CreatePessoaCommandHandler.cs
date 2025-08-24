@@ -3,7 +3,7 @@ using MediatR;
 using CartaoVacina.Application.DTOs;
 using CartaoVacina.Application.Interfaces;
 using CartaoVacina.Domain.Entities;
-using VaccinationCard.Domain.Exceptions;
+using CartaoVacina.Domain.Exceptions;
 
 namespace CartaoVacina.Application.Commands.Pessoas;
 
@@ -26,7 +26,7 @@ public class CreatePessoaCommandHandler : IRequestHandler<CreatePessoaCommand, P
             throw new DomainException("Já existe uma pessoa cadastrada com este número de documento");
         }
 
-        var pessoa = new Pessoa(request.Nome, request.Documento);
+        var pessoa = new Pessoa(request.Nome, request.Documento, request.Idade, request.Sexo);
         
         await _unitOfWork.Pessoas.AddAsync(pessoa);
         await _unitOfWork.SaveChangesAsync();
