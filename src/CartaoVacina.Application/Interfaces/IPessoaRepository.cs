@@ -10,5 +10,5 @@ public interface IPessoaRepository
     Task AddAsync(Pessoa pessoa);
     void Update(Pessoa pessoa);
     void Delete(Guid id);
-    Task<bool> DocumentNumberExistsAsync(string documentNumber);
+    Task<bool> DocumentoExisteAsync(string documentNumber);
 }
