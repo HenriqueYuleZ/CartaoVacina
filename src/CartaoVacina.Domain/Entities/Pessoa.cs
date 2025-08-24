@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CartaoVacina.Domain.Entities
 {
-    internal class Pessoa : BaseEntity
+    public class Pessoa : BaseEntity
     {
         public string Nome { get; private set; }
         public string Documento { get; private set; } // CPF/Identificação única

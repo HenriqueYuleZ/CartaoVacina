@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CartaoVacina.Domain.Entities
 {
-    internal class Vacinacao : BaseEntity
+    public class Vacinacao : BaseEntity
     {
         public Guid PessoaId { get; private set; }
         public Guid VacinaId { get; private set; }
