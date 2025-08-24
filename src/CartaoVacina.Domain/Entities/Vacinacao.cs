@@ -24,5 +24,8 @@ namespace CartaoVacina.Domain.Entities
             Dose = dose;
             DataAplicacao = dataAplicacao.Date;
         }
+
+        // Construtor para EF Core
+        private Vacinacao() { }
     }
 }
