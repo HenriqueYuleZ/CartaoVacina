@@ -10,6 +10,15 @@ namespace CartaoVacina.Domain.Entities
     {
         public string Nome { get; private set; }
         public string Documento { get; private set; } // CPF/Identificação única
+        public int Idade { get; private set; }
+        public SexoPessoa Sexo { get; private set; }
+
+        public enum SexoPessoa
+        {
+            Masculino,
+            Feminino,
+            Outro
+        }
 
 
         private readonly List<Vacinacao> _vacinacoes = new();
