@@ -69,14 +69,14 @@ public class PessoasController : ControllerBase
         return Ok(result);
     }
 
-    // /// <summary>
-    // /// Remover uma pessoa
-    // /// </summary>
-    // [HttpDelete("{id}")]
-    // public async Task<ActionResult> DeletePessoa(Guid id)
-    // {
-    //     var command = new DeletePessoaCommand(id);
-    //     await _mediator.Send(command);
-    //     return NoContent();
-    // }
+    /// <summary>
+    /// Remover uma pessoa
+    /// </summary>
+    [HttpDelete("{id}")]
+    public async Task<ActionResult> DeletePessoa(Guid id)
+    {
+        var command = new DeletePessoaCommand { Id = id };
+        await _mediator.Send(command);
+        return NoContent();
+    }
 }
