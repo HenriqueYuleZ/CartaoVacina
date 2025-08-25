@@ -46,6 +46,7 @@ builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 // Repositories
 builder.Services.AddScoped<IPessoaRepository, PessoaRepository>();
 builder.Services.AddScoped<IVacinaRepository, VacinaRepository>();
+builder.Services.AddScoped<IVacinacaoRepository, VacinacaoRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
