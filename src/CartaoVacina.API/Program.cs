@@ -49,6 +49,18 @@ builder.Services.AddScoped<IVacinaRepository, VacinaRepository>();
 builder.Services.AddScoped<IVacinacaoRepository, VacinacaoRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularDev", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyMethod()
+              .AllowAnyHeader()
+              .AllowCredentials();
+    });
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -83,6 +95,9 @@ if (app.Environment.IsDevelopment() || app.Environment.EnvironmentName == "Docke
 
 // Custom middleware
 app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+// CORS
+app.UseCors("AllowAngularDev");
 
 app.UseHttpsRedirection();
 
