@@ -68,4 +68,16 @@ public class VacinacaoController : ControllerBase
 
         return Ok(result);
     }
+
+    /// <summary>
+    /// Buscar cartão de vacinação completo por ID da pessoa
+    /// </summary>
+    [HttpGet("cartao-vacinacao")]
+    public async Task<ActionResult<CartaoVacinacaoDto>> GetCartaoVacinacao([FromQuery] Guid pessoaId)
+    {
+        var query = new GetCartaoVacinacaoByPessoaIdQuery(pessoaId);
+        var result = await _mediator.Send(query);
+
+        return Ok(result);
+    }
 }

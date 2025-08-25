@@ -35,6 +35,16 @@ public class VacinacaoRepository : BaseRepository<Vacinacao>, IVacinacaoReposito
         throw new NotImplementedException();
     }
 
+    public async Task<List<Vacinacao>> GetAllByPessoaIdAsync(Guid pessoaId)
+    {
+        return await _context.Vacinacoes
+            .Include(v => v.Pessoa)
+            .Include(v => v.Vacina)
+            .Where(v => v.PessoaId == pessoaId)
+            .OrderBy(v => v.DataAplicacao)
+            .ToListAsync();
+    }
+
     public Task<Vacinacao?> GetByVacinaIdAsync(Guid vacinaId)
     {
         throw new NotImplementedException();
