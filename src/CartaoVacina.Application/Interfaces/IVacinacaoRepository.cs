@@ -6,6 +6,7 @@ public interface IVacinacaoRepository
 {
     Task<Vacinacao?> GetByIdAsync(Guid id);
     Task<Vacinacao?> GetByPessoaIdAsync(Guid pessoaId);
+    Task<List<Vacinacao>> GetAllByPessoaIdAsync(Guid pessoaId);
     Task<Vacinacao?> GetByVacinaIdAsync(Guid vacinaId);
     Task<List<Vacinacao>> GetAllAsync();
     Task<Vacinacao> AddAsync(Vacinacao vacinacao);
