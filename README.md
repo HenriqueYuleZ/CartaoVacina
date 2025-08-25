@@ -12,7 +12,7 @@ O projeto segue o padrão **Clean Architecture**, dividido em camadas:
 
 - **Domain** → Contém as entidades, regras de negócio e validações centrais.
 - **Application** → Camada de orquestração da lógica, contendo casos de uso (CQRS com MediatR), validações (FluentValidation) e interfaces de repositórios.
-- **Infrastructure** → Implementação de persistência de dados (EF Core com MySQL via Pomelo), repositórios e Unit of Work.
+- **Infrastructure** → Implementação de persistência de dados (EF Core com SQL Server), repositórios e Unit of Work.
 - **API** → Camada de apresentação (ASP.NET Core minimal API / Controllers), exposição de endpoints, autenticação, Swagger e injeção de dependências.
 
 📌 Padrões aplicados:
@@ -25,7 +25,71 @@ O projeto segue o padrão **Clean Architecture**, dividido em camadas:
 
 ---
 
-## 📚 Rotas Planejadas
+## � Executando com Docker
+
+### Pré-requisitos
+
+- [Docker](https://www.docker.com/get-started)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### Inicialização Rápida
+
+1. **Clone o repositório:**
+   ```bash
+   git clone <repo-url>
+   cd CartaoVacina
+   ```
+
+2. **Configure as variáveis de ambiente:**
+   ```bash
+   # Copie o arquivo .env.example para .env (se necessário)
+   # O arquivo .env já está configurado com valores padrão
+   ```
+
+3. **Inicie com PowerShell:**
+   ```powershell
+   .\start-docker.ps1
+   ```
+
+   **Ou manualmente:**
+   ```bash
+   docker-compose up --build -d
+   ```
+
+### Serviços Disponíveis
+
+- **API:** http://localhost:5000 (Swagger na raiz)
+- **SQL Server:** localhost:1433
+  - Usuário: `sa`
+  - Senha: `YourStrong@Passw0rd` (configurada no .env)
+
+### Comandos Úteis
+
+```bash
+# Ver status dos containers
+docker-compose ps
+
+# Ver logs em tempo real
+docker-compose logs -f
+
+# Ver logs de um serviço específico
+docker-compose logs -f api
+docker-compose logs -f sqlserver
+
+# Parar os containers
+docker-compose down
+
+# Parar e remover volumes (limpa o banco)
+docker-compose down -v
+
+# Reconstruir apenas a API
+docker-compose build api
+docker-compose up -d api
+```
+
+---
+
+## �📚 Rotas Planejadas
 
 ### 👤 Pessoas
 
@@ -55,10 +119,11 @@ O projeto segue o padrão **Clean Architecture**, dividido em camadas:
 ## 🚀 Tecnologias
 
 - [.NET 8](https://dotnet.microsoft.com/)
-- [Entity Framework Core](https://learn.microsoft.com/ef/core/) + [Pomelo MySQL](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql)
+- [Entity Framework Core](https://learn.microsoft.com/ef/core/) + [SQL Server](https://www.microsoft.com/sql-server)
 - [MediatR](https://github.com/jbogard/MediatR)
 - [FluentValidation](https://fluentvalidation.net/)
 - [Swagger / Swashbuckle](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
+- [Docker](https://www.docker.com/) + [Docker Compose](https://docs.docker.com/compose/)
 
 ---
 

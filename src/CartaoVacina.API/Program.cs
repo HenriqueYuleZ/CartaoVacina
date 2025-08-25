@@ -20,7 +20,18 @@ builder.Services.AddControllers()
 
 // Entity Framework
 builder.Services.AddDbContext<CartaoVacinaDbContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+{
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    
+    // Se estiver em ambiente Docker, adiciona a senha da variável de ambiente
+    if (builder.Environment.EnvironmentName == "Docker")
+    {
+        var saPassword = Environment.GetEnvironmentVariable("SA_PASSWORD");
+        connectionString += $";Password={saPassword}";
+    }
+    
+    options.UseSqlServer(connectionString);
+});
 
 // MediatR
 builder.Services.AddMediatR(cfg => 
@@ -59,7 +70,7 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.EnvironmentName == "Docker")
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
