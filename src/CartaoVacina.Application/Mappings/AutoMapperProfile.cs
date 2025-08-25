@@ -1,6 +1,7 @@
 using AutoMapper;
 using CartaoVacina.Application.Commands.Pessoas;
 using CartaoVacina.Application.Commands.Vacinas;
+using CartaoVacina.Application.Commands.Vacinacoes;
 using CartaoVacina.Application.DTOs;
 using CartaoVacina.Domain.Entities;
 
@@ -17,5 +18,9 @@ public class AutoMapperProfile : Profile
         // Vacina Mappings
         CreateMap<Vacina, VacinaDto>();
         CreateMap<CriarVacinaDto, CreateVacinaCommand>();
+
+        // Vacinacao Mappings
+        CreateMap<CriarVacinacaoDto, CreateVacinacaoCommand>();
+        CreateMap<Vacinacao, VacinacaoDto>();
     }
 }
