@@ -65,4 +65,15 @@ public class VacinasController : ControllerBase
 
         return Ok(result);
     }
+
+    /// <summary>
+    /// Buscar todas as vacinas
+    /// </summary>
+    [HttpGet]
+    public async Task<ActionResult<List<VacinaDto>>> GetAllVacinas()
+    {
+        var query = new GetAllVacinasQuery();
+        var result = await _mediator.Send(query);
+        return Ok(result);
+    }
 }

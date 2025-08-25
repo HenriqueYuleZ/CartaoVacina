@@ -17,7 +17,10 @@ public class VacinaRepository : BaseRepository<Vacina>, IVacinaRepository
 
     public override async Task<List<Vacina>> GetAllAsync()
     {
-        return await _context.Vacinas.ToListAsync();
+        return await _context.Vacinas
+            .Include(v => v.Vacinacoes)
+            .ThenInclude(vacinacao => vacinacao.Pessoa)
+            .ToListAsync();
     }
 
     public void Delete(Guid id)
