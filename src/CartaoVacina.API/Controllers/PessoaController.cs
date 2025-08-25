@@ -70,6 +70,17 @@ public class PessoasController : ControllerBase
     }
 
     /// <summary>
+    /// Buscar todas as pessoas
+    /// </summary>
+    [HttpGet]
+    public async Task<ActionResult<List<PessoaDto>>> GetAllPersons()
+    {
+        var query = new GetAllPessoasQuery();
+        var result = await _mediator.Send(query);
+        return Ok(result);
+    }
+
+    /// <summary>
     /// Remover uma pessoa
     /// </summary>
     [HttpDelete("{id}")]
