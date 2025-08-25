@@ -31,6 +31,14 @@ public class PessoaRepository : BaseRepository<Pessoa>, IPessoaRepository
             .FirstOrDefaultAsync(p => p.Id == id);
     }
 
+    public override async Task<List<Pessoa>> GetAllAsync()
+    {
+        return await _dbSet
+            .Include(p => p.Vacinacoes)
+            .ThenInclude(v => v.Vacina)
+            .ToListAsync();
+    }
+
     public async void Delete(Guid id)
     {
         var entity = await _dbSet.FindAsync(id);
